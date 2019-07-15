@@ -15,4 +15,11 @@ class SeriesRepository
             return Series::latest()->take($count)->get();
         });
     }
+
+    public function getFeaturedSeries($ids = null)
+    {
+        $ids = $ids ?: config('laralist.featured');
+
+        return Series::whereIn('id', $ids)->get();
+    }
 }

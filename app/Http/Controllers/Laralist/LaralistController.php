@@ -31,7 +31,7 @@ class LaralistController extends Controller
      */
     public function index()
     {
-        $series = $this->seriesRepository->getSeries(12);
+        $series = $this->seriesRepository->getFeaturedSeries();
 
         $testimonials = Testimonial::with('author')
             ->inRandomOrder()
