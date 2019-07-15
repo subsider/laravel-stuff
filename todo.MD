@@ -1,0 +1,3 @@
+- Trait Model finder
+  - ``$this->getSeries(12)``;
+  - ``$this->getTestimonials(4)``;
