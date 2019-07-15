@@ -3,23 +3,34 @@
 namespace App\Repositories;
 
 use App\Models\Series;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 
 class SeriesRepository
 {
-    public function getSeries(int $count = null)
+    /**
+     * @param int|null $count
+     * @return Collection
+     */
+    public function getSeries(int $count = null): Collection
     {
         $key = "series.get{$count}";
 
-        return Cache::remember($key, 1440, function () use ($count) {
+        return Cache::remember($key, 1440000, function () use ($count) {
             return Series::latest()->take($count)->get();
         });
     }
 
-    public function getFeaturedSeries($ids = null)
+    /**
+     * @param array|null $ids
+     * @return Collection
+     */
+    public function getFeaturedSeries(array $ids = null): Collection
     {
         $ids = $ids ?: config('laralist.featured');
 
-        return Series::whereIn('id', $ids)->get();
+        return Cache::remember('series.featured', 1440000, function () use ($ids) {
+            return Series::find($ids);
+        });
     }
 }
