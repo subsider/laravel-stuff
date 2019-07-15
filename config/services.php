@@ -44,4 +44,8 @@ return [
         ],
     ],
 
+    'simplecast' => [
+        'api_key' => env('SIMPLECAST_API_KEY'),
+    ],
+
 ];
