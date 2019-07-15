@@ -4,11 +4,26 @@ namespace App\Http\Controllers\Laralist;
 
 use App\Models\Series;
 use App\Models\Testimonial;
+use App\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class LaralistController extends Controller
 {
+    /**
+     * @var SeriesRepository
+     */
+    private $seriesRepository;
+
+    /**
+     * LaralistController constructor.
+     * @param SeriesRepository $seriesRepository
+     */
+    public function __construct(SeriesRepository $seriesRepository)
+    {
+        $this->seriesRepository = $seriesRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +31,8 @@ class LaralistController extends Controller
      */
     public function index()
     {
-        $series = Series::paginate(12);
+        $series = $this->seriesRepository->getSeries(12);
+
         $testimonials = Testimonial::with('author')
             ->inRandomOrder()
             ->take(4)

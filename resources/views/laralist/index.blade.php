@@ -15,7 +15,7 @@
                             <img class="card-img-top" src="{{ $seriesItem->image }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $seriesItem->name }}</h5>
-                                <p class="card-text">{{ $seriesItem->description }}</p>
+                                <p class="card-text">{{ $seriesItem->excerpt }}</p>
                                 <a href="#" class="btn btn-primary">Go</a>
                             </div>
                         </div>
