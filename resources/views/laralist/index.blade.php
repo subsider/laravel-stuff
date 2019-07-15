@@ -44,5 +44,15 @@
                 </div>
             @endforeach
         </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12 is-centered-xy">
+                <div class="wrap is-circle is-centered-xy">
+                    <div class="object is-a is-circle"></div>
+                    <div class="object is-b is-circle"></div>
+                    <div class="object is-c is-circle"></div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

@@ -1,0 +1,55 @@
+html, body {
+    height: 100%;
+}
+
+.is-centered-xy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.is-circle {
+    border-radius: 50%;
+}
+
+.wrap {
+    background: blue;
+    width: 300px;
+    height: 300px;
+}
+
+.object {
+    width: 30px;
+    height: 30px;
+    background: red;
+    animation: rotate 10s linear infinite;
+    position: absolute;
+}
+
+.is-b {
+    background: orange;
+    transform: translateX(150px);
+    animation-delay: 2s;
+    animation-direction: reverse;
+}
+
+.is-c {
+    background: green;
+    transform: translateX(150px);
+    animation-delay: 4s;
+    animation-direction: alternate;
+}
+
+.object:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) translateX(150px);
+    }
+    to {
+        transform: rotate(360deg) translateX(150px);
+    }
+}
