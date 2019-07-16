@@ -40,9 +40,9 @@
                 url: 'http://srv.buysellads.com/ads/CVADC53U.json',
                 dataType: 'jsonp',
 
-                success: response => {
+                success: ({ads}) => {
                     this.loaded = true;
-                    this.ad = response.ads[0];
+                    this.ad = ads[0];
                 }
             })
         }

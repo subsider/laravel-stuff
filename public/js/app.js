@@ -1901,9 +1901,10 @@ __webpack_require__.r(__webpack_exports__);
     $.ajax({
       url: 'http://srv.buysellads.com/ads/CVADC53U.json',
       dataType: 'jsonp',
-      success: function success(response) {
+      success: function success(_ref) {
+        var ads = _ref.ads;
         _this.loaded = true;
-        _this.ad = response.ads[0];
+        _this.ad = ads[0];
       }
     });
   }
