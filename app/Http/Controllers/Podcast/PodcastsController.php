@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Podcast;
 
+use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -20,12 +21,9 @@ class PodcastsController extends Controller
             ]
         ]);
 
-        $feed = Cache::remember('podcast', 60 * 24 * 7, function () use ($client) {
-            $response = $client->request('GET', '');
-            return json_decode($response->getBody()->getContents());
-        });
+        $res = $client->request('GET', '');
 
-        //return $feed['collection'];
+        $feed = json_decode($res->getBody()->getContents(), true);
 
         return view('podcasts.index')->with([
             'feed' => $feed['collection'],

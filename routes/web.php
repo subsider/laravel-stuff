@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('laralist', 'Laralist\LaralistController@index')->name('laralist.index');
-Route::get('podcasts', 'PodcastsController@index')->name('podcasts.index');
+Route::get('podcasts', 'Podcast\PodcastsController@index')->name('podcasts.index');
+Route::get('tasks', 'Task\TasksController@index')->name('tasks.index');
