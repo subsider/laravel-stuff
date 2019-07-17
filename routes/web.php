@@ -23,3 +23,4 @@ Route::get('podcasts', 'Podcast\PodcastsController@index')->name('podcasts.index
 Route::get('tasks', 'Task\TasksController@index')->name('tasks.index');
 Route::post('tasks', 'Task\TasksController@store')->name('tasks.store');
 Route::get('tasks/create', 'Task\TasksController@create')->name('tasks.create');
+Route::post('coupons', 'Coupon\CouponsController@store')->name('coupons.store');

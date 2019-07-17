@@ -16,11 +16,6 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
-
-        <testsuite name="Dusk">
-            <directory suffix="Test.php">./tests/Browser</directory>
-            <exclude>./tests/Browser/</exclude>
-        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
